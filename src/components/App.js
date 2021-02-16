@@ -1,22 +1,20 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
+
 import Home from "./Home";
 import People from "./People";
 import NavBar from "./NavBar";
+import PersonDetails from "./PersonDetails";
 
-const App = () => {
+export default function App() {
   return (
     <div>
       <NavBar />
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/" component={Home}></Route>
-          <Route exact path="/people" component={People}></Route>
-        </Switch>
-      </BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/people" component={People}></Route>
+        <Route exact path="/people/:personId" component={PersonDetails}></Route>
+      </Switch>
     </div>
   );
-};
-
-ReactDOM.render(<App />, document.getElementById("root"));
+}
