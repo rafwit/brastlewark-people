@@ -4,6 +4,7 @@
 .person {
   @include basicBoxFormat;
 
+  display: flex;
   color: $color-black-light;
   text-decoration: none;
   width: 10vw;
