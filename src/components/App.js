@@ -13,7 +13,11 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={Home}></Route>
         <Route exact path="/people" component={People}></Route>
-        <Route exact path="/people/:personId" component={PersonDetails}></Route>
+        <Route
+          exact
+          path="/people/:id/:personFullName"
+          component={PersonDetails}
+        ></Route>
       </Switch>
     </div>
   );

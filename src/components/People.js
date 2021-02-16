@@ -28,8 +28,10 @@ export default function People() {
 }
 
 function PersonCard({ person }) {
+  const [name, surname] = person.name.split(" ");
+  // console.log(name, surname);
   return (
-    <Link className="person" to={`people/${person.id}`}>
+    <Link className="person" to={`/people/${person.id}/${name}${surname}`}>
       <div className="person__avatar"></div>
       <div className="person__name">{person.name}</div>
       <div className="person__details"></div>

@@ -4,10 +4,10 @@ import { useParams } from "react-router-dom";
 import Breadcrumbs from "./Breadcrumbs";
 
 export default function PersonDetails() {
-  let { personId } = useParams();
+  let { id } = useParams();
   const people = useSelector((store) => store.people);
 
-  const [person] = people.filter((person) => person.id === +personId);
+  const [person] = people.filter((person) => person.id === +id);
 
   return (
     <>
