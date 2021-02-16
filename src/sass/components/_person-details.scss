@@ -4,18 +4,78 @@
 .person_details {
   @include basicBoxFormat;
 
+  display: flex;
+  justify-content: space-between;
+
   color: $color-black-light;
-  text-decoration: none;
-  width: 60vw;
-  margin: 10rem;
+  width: auto;
+  height: 30vh;
+  margin-top: 10rem;
+  padding: 10rem;
+
+  &__avatar {
+    align-self: flex-start;
+    margin-left: -2rem;
+  }
+
+  &__basic {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    margin: -4rem 1rem 0 1rem;
+    font-family: $font-headings;
+    font-size: $font-size-headings-big;
+  }
+
+  &__appearance {
+    margin: 1rem 1rem 0 1rem;
+    align-self: flex-start;
+    font-size: $font-size-normal;
+    color: $color-gray;
+
+    > * {
+      padding-top: 1rem;
+    }
+  }
+
+  &__professions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+
+    &--header {
+      margin: 0 1rem 1rem 1rem;
+      font-family: $font-headings;
+      font-size: $font-size-headings-medium;
+    }
+
+    &--profession {
+      margin: 0 0 0 1rem;
+      align-self: flex-start;
+      font-size: $font-size-normal;
+      color: $color-gray;
+    }
+  }
 
   &__friends {
     display: flex;
     flex-direction: column;
+    margin-top: 1.5rem;
+
+    &--header {
+      margin: 0 1rem 1rem 1rem;
+      font-family: $font-headings;
+      font-size: $font-size-headings-medium;
+    }
 
     &--friend {
       text-decoration: none;
-      color: $color-black-light;
+      margin: 0 0 0 1rem;
+      align-self: flex-start;
+      font-size: $font-size-normal;
+      color: $color-gray;
 
       margin-top: 1rem;
     }

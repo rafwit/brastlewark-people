@@ -38,8 +38,11 @@ body {
 }
 
 .breadcrumbs {
-  position: absolute;
-  top: 9rem;
+  position: fixed;
+  background-color: #fcfcfc;
+  top: 8rem;
+  padding-top: 1rem;
+  height: 3rem;
   display: flex;
   align-items: baseline;
 }
@@ -160,17 +163,67 @@ body {
   padding: 2rem;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   color: #303133;
+  display: flex;
+  justify-content: space-between;
   color: #303133;
-  text-decoration: none;
-  width: 60vw;
-  margin: 10rem;
+  width: auto;
+  height: 30vh;
+  margin-top: 10rem;
+  padding: 10rem;
+}
+.person_details__avatar {
+  align-self: flex-start;
+  margin-left: -2rem;
+}
+.person_details__basic {
+  display: flex;
+  flex-direction: column;
+}
+.person_details__name {
+  margin: -4rem 1rem 0 1rem;
+  font-family: "Barlow Condensed";
+  font-size: 3.5rem;
+}
+.person_details__appearance {
+  margin: 1rem 1rem 0 1rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  color: #808080;
+}
+.person_details__appearance > * {
+  padding-top: 1rem;
+}
+.person_details__professions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+.person_details__professions--header {
+  margin: 0 1rem 1rem 1rem;
+  font-family: "Barlow Condensed";
+  font-size: 2.4rem;
+}
+.person_details__professions--profession {
+  margin: 0 0 0 1rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  color: #808080;
 }
 .person_details__friends {
   display: flex;
   flex-direction: column;
+  margin-top: 1.5rem;
+}
+.person_details__friends--header {
+  margin: 0 1rem 1rem 1rem;
+  font-family: "Barlow Condensed";
+  font-size: 2.4rem;
 }
 .person_details__friends--friend {
   text-decoration: none;
-  color: #303133;
+  margin: 0 0 0 1rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  color: #808080;
   margin-top: 1rem;
 }

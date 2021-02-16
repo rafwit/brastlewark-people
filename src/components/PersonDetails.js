@@ -23,15 +23,29 @@ export default function PersonDetails() {
       />
       {console.log(person)}
       <div className="person_details">
-        <Avatar src={person.thumbnail} round={true} size={"10rem"} />
-        <div className="person_details__name">{person.name}</div>
-        <div className="person_details__details">
-          <div className="person_details__details--age"></div>
-          <div className="person_details__details--weight"></div>
-          <div className="person_details__details--height"></div>
-          <div className="person_details__details--hair_color"></div>
+        <Avatar
+          className="person_details__avatar"
+          src={person.thumbnail}
+          round={true}
+          size={"20rem"}
+        />
+        <div className="person_details__basic">
+          <div className="person_details__name">{person.name}</div>
+          <div className="person_details__appearance">
+            <div className="person_details__appearance--age">{`Age: ${person.age}`}</div>
+            <div className="person_details__appearance--weight">{`Weight: ${
+              Math.round(person.weight * 100) / 100
+            }`}</div>
+            <div className="person_details__appearance--height">{`Height: ${
+              Math.round(person.height * 100) / 100
+            }`}</div>
+            <div className="person_details__appearance--hair_color">{`Hair color: ${person.hair_color}`}</div>
+          </div>
         </div>
         <div className="person_details__professions">
+          <div className="person_details__professions--header">
+            Professions{" "}
+          </div>
           {person.professions.map((profession) => {
             return (
               <div
@@ -42,34 +56,36 @@ export default function PersonDetails() {
               </div>
             );
           })}
-          <div className="person_details__friends">
-            {person.friends
-              ? person.friends.map((friend) => {
-                  const [fullFriendInfo] = people.filter((person) => {
-                    if (person.name.includes(friend)) {
-                      return true;
-                    }
-                  });
-                  const name = fullFriendInfo
-                    ? fullFriendInfo.name.split(" ")
-                    : undefined;
+        </div>
 
-                  return (
-                    <Link
-                      to={
-                        fullFriendInfo
-                          ? `/people/${fullFriendInfo.id}/${name.join("")}`
-                          : "#"
-                      }
-                      className="person_details__friends--friend"
-                      key={`${person.id}${person.height}${friend}`}
-                    >
-                      {friend}
-                    </Link>
-                  );
-                })
-              : null}
-          </div>
+        <div className="person_details__friends">
+          <div className="person_details__friends--header">Friends </div>
+          {person.friends
+            ? person.friends.map((friend) => {
+                const [fullFriendInfo] = people.filter((person) => {
+                  if (person.name.includes(friend)) {
+                    return true;
+                  }
+                });
+                const name = fullFriendInfo
+                  ? fullFriendInfo.name.split(" ")
+                  : undefined;
+
+                return (
+                  <Link
+                    to={
+                      fullFriendInfo
+                        ? `/people/${fullFriendInfo.id}/${name.join("")}`
+                        : "#"
+                    }
+                    className="person_details__friends--friend"
+                    key={`${person.id}${person.height}${friend}`}
+                  >
+                    {friend} &rarr;
+                  </Link>
+                );
+              })
+            : null}
         </div>
       </div>
     </>
