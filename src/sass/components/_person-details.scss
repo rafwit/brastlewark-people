@@ -1,0 +1,11 @@
+@import "../abstracts/mixins";
+@import "../abstracts/variables";
+
+.person_details {
+  @include basicBoxFormat;
+
+  color: $color-black-light;
+  text-decoration: none;
+  width: 10vw;
+  margin: 10rem;
+}
