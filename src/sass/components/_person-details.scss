@@ -6,6 +6,18 @@
 
   color: $color-black-light;
   text-decoration: none;
-  width: 10vw;
+  width: 60vw;
   margin: 10rem;
+
+  &__friends {
+    display: flex;
+    flex-direction: column;
+
+    &--friend {
+      text-decoration: none;
+      color: $color-black-light;
+
+      margin-top: 1rem;
+    }
+  }
 }

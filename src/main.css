@@ -143,6 +143,18 @@ body {
   margin-top: 10rem;
 }
 
+.person {
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  color: #303133;
+  display: flex;
+  color: #303133;
+  text-decoration: none;
+  width: 10vw;
+  margin: 1rem;
+}
+
 .person_details {
   border-radius: 0.5rem;
   padding: 2rem;
@@ -150,17 +162,15 @@ body {
   color: #303133;
   color: #303133;
   text-decoration: none;
-  width: 10vw;
+  width: 60vw;
   margin: 10rem;
 }
-
-.person {
-  border-radius: 0.5rem;
-  padding: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  color: #303133;
-  color: #303133;
+.person_details__friends {
+  display: flex;
+  flex-direction: column;
+}
+.person_details__friends--friend {
   text-decoration: none;
-  width: 10vw;
-  margin: 1rem;
+  color: #303133;
+  margin-top: 1rem;
 }
