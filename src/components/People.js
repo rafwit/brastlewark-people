@@ -3,23 +3,27 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { getPeople } from "../store/actions";
+import Breadcrumbs from "./Breadcrumbs";
 
 export default function People() {
   const people = useSelector((store) => store.people);
   const distpach = useDispatch();
 
   useEffect(() => {
-    people ? distpach(getPeople()) : null;
-  }, []);
+    if (!people.length) distpach(getPeople());
+  }, [people]);
 
   return (
-    <div className="people">
-      {people
-        ? people.map((person) => {
-            return <PersonCard person={person} key={person.id} />;
-          })
-        : null}
-    </div>
+    <>
+      <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "People" }]} />
+      <div className="people">
+        {people
+          ? people.map((person) => {
+              return <PersonCard person={person} key={person.id} />;
+            })
+          : null}
+      </div>
+    </>
   );
 }
 

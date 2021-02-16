@@ -37,6 +37,27 @@ body {
   }
 }
 
+.breadcrumbs {
+  position: absolute;
+  top: 9rem;
+  display: flex;
+  align-items: baseline;
+}
+.breadcrumbs__item {
+  position: relative;
+}
+.breadcrumbs__item--link {
+  text-decoration: none;
+  color: #303133;
+}
+.breadcrumbs__item--separator {
+  position: relative;
+  margin: 0 2px 0 2px;
+  top: 0.15rem;
+  height: 1em;
+  width: auto;
+}
+
 .homepage {
   position: relative;
   margin-top: 3rem;

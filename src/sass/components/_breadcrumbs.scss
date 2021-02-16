@@ -1,0 +1,25 @@
+@import "../abstracts/variables";
+
+.breadcrumbs {
+  position: absolute;
+  top: 9rem;
+  display: flex;
+  align-items: baseline;
+
+  &__item {
+    position: relative;
+
+    &--link {
+      text-decoration: none;
+      color: $color-black-light;
+    }
+
+    &--separator {
+      position: relative;
+      margin: 0 2px 0 2px;
+      top: 0.15rem;
+      height: 1em;
+      width: auto;
+    }
+  }
+}
