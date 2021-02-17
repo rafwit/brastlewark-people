@@ -24,5 +24,21 @@ export function showMorePeople(numberOfPeople) {
   };
 }
 
+export function updateSearchCriteria(searchedString) {
+  return {
+    type: ADD_SEARCH_CRITERIA,
+    payload: searchedString,
+  };
+}
+
+export function clearSearchCriteria() {
+  return {
+    type: CLEAR_SEARCH_CRITERIA,
+    payload: null,
+  };
+}
+
 export const SAVE_PEOPLE = "SAVE_PEOPLE";
 export const SHOW_MORE_PEOPLE = "SHOW_MORE_PEOPLE";
+export const ADD_SEARCH_CRITERIA = "ADD_SEARCH_CRITERIA";
+export const CLEAR_SEARCH_CRITERIA = "CLEAR_SEARCH_CRITERIA";
