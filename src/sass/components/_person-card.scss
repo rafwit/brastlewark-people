@@ -5,8 +5,15 @@
   @include basicBoxFormat;
 
   display: flex;
+  justify-content: center;
   color: $color-black-light;
   text-decoration: none;
-  width: 10vw;
+  width: 15vw;
   margin: 1rem;
+  font-size: $font-size-normal;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
