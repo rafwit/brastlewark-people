@@ -17,4 +17,12 @@ export function getPeople() {
   };
 }
 
+export function showMorePeople(numberOfPeople) {
+  return {
+    type: SHOW_MORE_PEOPLE,
+    payload: numberOfPeople,
+  };
+}
+
 export const SAVE_PEOPLE = "SAVE_PEOPLE";
+export const SHOW_MORE_PEOPLE = "SHOW_MORE_PEOPLE";
