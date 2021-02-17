@@ -28,7 +28,6 @@ export default function PersonDetails() {
       />
 
       <div className="person_details">
-        {console.log(avatarSizeDecrease)}
         {profilePictureToggle ? (
           <Avatar
             className="person_details__avatar"
