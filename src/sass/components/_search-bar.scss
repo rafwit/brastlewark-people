@@ -1,0 +1,50 @@
+@import "../abstracts/variables";
+
+.search_bar {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+
+  @include headingFont;
+
+  width: 60%;
+  margin-top: 10rem;
+
+  &--title {
+    align-self: center;
+    margin-bottom: 4rem;
+    font-size: $font-size-headings-big;
+  }
+
+  &--form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--input {
+    width: 100%;
+    border: none;
+    border-radius: 5rem;
+    padding: 1.5rem;
+    font-family: $font-primary;
+    border: 1px solid $color-gray;
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &--button {
+    width: 15%;
+    align-self: center;
+    margin-top: 2rem;
+
+    border: none;
+    border-radius: 5rem;
+    height: 3rem;
+    background-color: $color-red;
+    color: $color-white;
+    font-size: $font-size-medium;
+  }
+}
