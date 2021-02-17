@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { X } from "react-feather";
 
-import { getPeople, showMorePeople } from "../store/actions";
+import {
+  clearSearchCriteria,
+  getPeople,
+  showMorePeople,
+} from "../store/actions";
 import Breadcrumbs from "./Breadcrumbs";
+import SearchBar from "./SearchBar";
 
 export default function People() {
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(false);
 
   const people = useSelector((store) => store.people);
   const itemsOnPageCount = useSelector((store) => store.pagination);
+  const searchCriteria = useSelector((store) => store.search_criteria);
+
   const distpach = useDispatch();
 
   useEffect(() => {
@@ -23,15 +31,51 @@ export default function People() {
   }, [people]);
 
   return (
-    <div className="people" id="people">
+    <div className="people">
       <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "People" }]} />
-      <div className="people__list">
-        {people
-          ? people.slice(0, itemsOnPageCount).map((person) => {
-              return <PersonCard person={person} key={person.id} />;
-            })
-          : null}
-      </div>
+      <SearchBar />
+      {console.log(searchCriteria)}
+      {searchCriteria === null ? (
+        <>
+          <div className="people__separator">
+            Or browse the whole poplulation
+          </div>
+          <div className="people__list">
+            {people
+              ? people.slice(0, itemsOnPageCount).map((person) => {
+                  return <PersonCard person={person} key={person.id} />;
+                })
+              : null}
+          </div>
+        </>
+      ) : (
+        <>
+          <div className="people__search_criteria">
+            <div className="people__search_criteria--value">
+              Searched for: &quot;{searchCriteria}&quot;
+            </div>
+            <button
+              className="people__search_criteria--clear_button"
+              onClick={() => distpach(clearSearchCriteria())}
+            >
+              <X size="2rem" />
+            </button>
+          </div>
+          <div className="people__list">
+            {people.slice(0, itemsOnPageCount).map((person) => {
+              if (
+                person.name
+                  .toLowerCase()
+                  .split(" ")
+                  .join("")
+                  .includes(searchCriteria.toLowerCase())
+              ) {
+                return <PersonCard person={person} key={person.id} />;
+              }
+            })}
+          </div>
+        </>
+      )}
       {showLoadMoreButton ? (
         <LoadMoreButton
           active={itemsOnPageCount >= people.length ? false : true}

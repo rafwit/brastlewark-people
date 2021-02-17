@@ -5,11 +5,39 @@
   flex-direction: column;
   justify-content: center;
 
+  &__separator {
+    color: $color-black-light;
+    @include headingFont;
+    align-self: center;
+    margin: 6rem;
+    font-size: $font-size-headings-big;
+  }
+
   &__list {
     display: flex;
     justify-content: center;
     width: 100%;
     flex-wrap: wrap;
-    margin-top: 10rem;
+    margin-top: 1rem;
+  }
+
+  &__search_criteria {
+    display: flex;
+
+    &--value {
+      align-self: center;
+      padding: 0.5rem;
+      color: $color-black-light;
+      font-family: $font-primary;
+      font-size: $font-size-medium;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    &--clear_button {
+      background-color: transparent;
+      align-self: center;
+      border: none;
+    }
   }
 }

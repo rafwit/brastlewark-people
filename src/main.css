@@ -71,35 +71,6 @@ body {
   height: 50vh;
   border-radius: 2rem;
 }
-.homepage__search_bar {
-  border-radius: 0.5rem;
-  padding: 2rem;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
-  color: #303133;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  font-size: 2rem;
-  font-family: "Barlow Condensed";
-  width: 60%;
-  margin: 2rem 0 2rem 0;
-}
-.homepage__search_bar--title {
-  align-self: center;
-}
-.homepage__search_bar--form {
-  display: flex;
-}
-.homepage__search_bar--input {
-  width: 100%;
-}
-.homepage__separator {
-  color: #303133;
-  font-size: 2rem;
-  font-family: "Barlow Condensed";
-  align-self: center;
-  padding: 2rem;
-}
 .homepage__link {
   border-radius: 0.5rem;
   padding: 2rem;
@@ -109,7 +80,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30%;
+  width: 50%;
   height: 10vh;
   text-decoration: none;
   font-size: 2rem;
@@ -117,13 +88,14 @@ body {
 }
 .homepage__link--title {
   align-self: center;
+  font-size: 3.5rem;
 }
 
 .load_more_button {
   align-self: center;
   align-content: center;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 5rem;
   color: #fcfcfc;
   font-size: 1.5rem;
   line-height: 1rem;
@@ -163,12 +135,37 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.people__separator {
+  color: #303133;
+  font-size: 2rem;
+  font-family: "Barlow Condensed";
+  align-self: center;
+  margin: 6rem;
+  font-size: 3.5rem;
+}
 .people__list {
   display: flex;
   justify-content: center;
   width: 100%;
   flex-wrap: wrap;
-  margin-top: 10rem;
+  margin-top: 1rem;
+}
+.people__search_criteria {
+  display: flex;
+}
+.people__search_criteria--value {
+  align-self: center;
+  padding: 0.5rem;
+  color: #303133;
+  font-family: "Noto Sans";
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: fit-content;
+}
+.people__search_criteria--clear_button {
+  background-color: transparent;
+  align-self: center;
+  border: none;
 }
 
 .person {
@@ -304,4 +301,45 @@ body {
   font-size: 1.2rem;
   color: #808080;
   margin-top: 1rem;
+}
+
+.search_bar {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-family: "Barlow Condensed";
+  width: 60%;
+  margin-top: 10rem;
+}
+.search_bar--title {
+  align-self: center;
+  margin-bottom: 4rem;
+  font-size: 3.5rem;
+}
+.search_bar--form {
+  display: flex;
+  flex-direction: column;
+}
+.search_bar--input {
+  width: 100%;
+  border: none;
+  border-radius: 5rem;
+  padding: 1.5rem;
+  font-family: "Noto Sans";
+  border: 1px solid #808080;
+}
+.search_bar--input:active, .search_bar--input:focus {
+  outline: none;
+}
+.search_bar--button {
+  width: 15%;
+  align-self: center;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 5rem;
+  height: 3rem;
+  background-color: #ca5157;
+  color: #fcfcfc;
+  font-size: 1.5rem;
 }
