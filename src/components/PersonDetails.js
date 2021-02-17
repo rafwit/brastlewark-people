@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams, Link } from "react-router-dom";
 
 import Avatar from "react-avatar";
 
 import Breadcrumbs from "./Breadcrumbs";
+import useMediaQuery from "../utils/useMediaQuery";
 
 export default function PersonDetails() {
   let { id } = useParams();
   const people = useSelector((store) => store.people);
+  const profilePictureToggle = useMediaQuery("(max-width: 1024px)");
+  const avatarSizeDecrease = useMediaQuery("(max-width: 700px)");
+
+  useEffect(() => {}, [profilePictureToggle, avatarSizeDecrease]);
 
   const [person] = people.filter((person) => person.id === +id);
 
@@ -21,14 +26,25 @@ export default function PersonDetails() {
           { label: person.name },
         ]}
       />
-      {console.log(person)}
+
       <div className="person_details">
-        <Avatar
-          className="person_details__avatar"
-          src={person.thumbnail}
-          round={true}
-          size={"20rem"}
-        />
+        {console.log(avatarSizeDecrease)}
+        {profilePictureToggle ? (
+          <Avatar
+            className="person_details__avatar"
+            name={person.name}
+            round={true}
+            size={avatarSizeDecrease ? "10rem" : "20rem"}
+            alt="avatar"
+          />
+        ) : (
+          <img
+            className="person_details__picture"
+            src={person.thumbnail}
+            alt="profile pic"
+          ></img>
+        )}
+
         <div className="person_details__basic">
           <div className="person_details__name">{person.name}</div>
           <div className="person_details__appearance">
@@ -42,50 +58,53 @@ export default function PersonDetails() {
             <div className="person_details__appearance--hair_color">{`Hair color: ${person.hair_color}`}</div>
           </div>
         </div>
-        <div className="person_details__professions">
-          <div className="person_details__professions--header">
-            Professions{" "}
+
+        <div className="person_details__other">
+          <div className="person_details__professions">
+            <div className="person_details__professions--header">
+              Professions{" "}
+            </div>
+            {person.professions.map((profession) => {
+              return (
+                <div
+                  className="person_details__professions--profession"
+                  key={`${person.id}${person.height}${profession}`}
+                >
+                  {profession}
+                </div>
+              );
+            })}
           </div>
-          {person.professions.map((profession) => {
-            return (
-              <div
-                className="person_details__professions--profession"
-                key={`${person.id}${person.height}${profession}`}
-              >
-                {profession}
-              </div>
-            );
-          })}
-        </div>
 
-        <div className="person_details__friends">
-          <div className="person_details__friends--header">Friends </div>
-          {person.friends
-            ? person.friends.map((friend) => {
-                const [fullFriendInfo] = people.filter((person) => {
-                  if (person.name.includes(friend)) {
-                    return true;
-                  }
-                });
-                const name = fullFriendInfo
-                  ? fullFriendInfo.name.split(" ")
-                  : undefined;
-
-                return (
-                  <Link
-                    to={
-                      fullFriendInfo
-                        ? `/people/${fullFriendInfo.id}/${name.join("")}`
-                        : "#"
+          <div className="person_details__friends">
+            <div className="person_details__friends--header">Friends </div>
+            {person.friends
+              ? person.friends.map((friend) => {
+                  const [fullFriendInfo] = people.filter((person) => {
+                    if (person.name.includes(friend)) {
+                      return true;
                     }
-                    className="person_details__friends--friend"
-                    key={`${person.id}${person.height}${friend}`}
-                  >
-                    {friend} &rarr;
-                  </Link>
-                );
-              })
-            : null}
+                  });
+                  const name = fullFriendInfo
+                    ? fullFriendInfo.name.split(" ")
+                    : undefined;
+
+                  return (
+                    <Link
+                      to={
+                        fullFriendInfo
+                          ? `/people/${fullFriendInfo.id}/${name.join("")}`
+                          : "#"
+                      }
+                      className="person_details__friends--friend"
+                      key={`${person.id}${person.height}${friend}`}
+                    >
+                      {friend} &rarr;
+                    </Link>
+                  );
+                })
+              : null}
+          </div>
         </div>
       </div>
     </>

@@ -4,29 +4,60 @@
 .person_details {
   @include basicBoxFormat;
 
+  position: relative;
   display: flex;
   justify-content: space-between;
 
+  overflow: hidden;
   color: $color-black-light;
-  width: auto;
-  height: 30vh;
   margin-top: 10rem;
   padding: 10rem;
+
+  @include respond(phone-large) {
+    justify-content: space-around;
+    // padding: 10rem 1rem 10rem 1rem;
+  }
+
+  @include respond(phone-medium) {
+    flex-direction: column;
+    // padding: 5rem;
+  }
+
+  &__picture {
+    width: 30%;
+  }
 
   &__avatar {
     align-self: flex-start;
     margin-left: -2rem;
+
+    @include respond(phone-large) {
+      // margin: 2rem 0 2rem 1rem;
+    }
+
+    @include respond(phone-medium) {
+      align-self: center;
+      transform: translate(-4px, -25%);
+    }
   }
 
   &__basic {
     display: flex;
     flex-direction: column;
+
+    @include respond(phone-medium) {
+      flex-direction: column;
+    }
   }
 
   &__name {
     margin: -4rem 1rem 0 1rem;
     font-family: $font-headings;
     font-size: $font-size-headings-big;
+
+    @include respond(phone-medium) {
+      align-self: center;
+    }
   }
 
   &__appearance {
@@ -37,6 +68,23 @@
 
     > * {
       padding-top: 1rem;
+    }
+
+    @include respond(phone-medium) {
+      display: flex;
+      width: 70vw;
+      justify-content: space-between;
+      align-self: center;
+    }
+  }
+
+  &__other {
+    display: flex;
+    transform: translateX(-10%);
+
+    @include respond(phone-medium) {
+      transform: translateX(0);
+      flex-direction: column;
     }
   }
 
