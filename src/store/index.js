@@ -4,13 +4,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import {
   paginationReducer,
   peopleReducer,
-  searchCriteriaReducer,
+  filterCriteriaReducer,
 } from "./reducers";
 
 const appReducers = combineReducers({
   people: peopleReducer,
   pagination: paginationReducer,
-  search_criteria: searchCriteriaReducer,
+  filter: filterCriteriaReducer,
 });
 
 export const store = createStore(

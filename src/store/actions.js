@@ -24,6 +24,13 @@ export function showMorePeople(numberOfPeople) {
   };
 }
 
+export function resetItemsOnPageCount() {
+  return {
+    type: RESET_MAX_ITEMS_ON_PAGE_COUNT,
+    payload: 50,
+  };
+}
+
 export function updateSearchCriteria(searchedString) {
   return {
     type: ADD_SEARCH_CRITERIA,
@@ -38,7 +45,16 @@ export function clearSearchCriteria() {
   };
 }
 
+export function saveFilteredPeople(people) {
+  return {
+    type: SAVE_FILTERED_PEOPLE,
+    payload: people,
+  };
+}
+
 export const SAVE_PEOPLE = "SAVE_PEOPLE";
 export const SHOW_MORE_PEOPLE = "SHOW_MORE_PEOPLE";
 export const ADD_SEARCH_CRITERIA = "ADD_SEARCH_CRITERIA";
 export const CLEAR_SEARCH_CRITERIA = "CLEAR_SEARCH_CRITERIA";
+export const SAVE_FILTERED_PEOPLE = "SAVE_FILTERED_PEOPLE";
+export const RESET_MAX_ITEMS_ON_PAGE_COUNT = "RESET_MAX_ITEMS_ON_PAGE_COUNT";
