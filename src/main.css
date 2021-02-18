@@ -136,9 +136,9 @@ body {
   justify-content: center;
 }
 .people__separator {
-  color: #303133;
   font-size: 2rem;
   font-family: "Barlow Condensed";
+  color: #303133;
   align-self: center;
   margin: 6rem;
   font-size: 3.5rem;
@@ -152,10 +152,9 @@ body {
 }
 .people__search_criteria {
   display: flex;
+  align-content: center;
 }
 .people__search_criteria--value {
-  align-self: center;
-  padding: 0.5rem;
   color: #303133;
   font-family: "Noto Sans";
   font-size: 1.5rem;
@@ -164,8 +163,11 @@ body {
 }
 .people__search_criteria--clear_button {
   background-color: transparent;
-  align-self: center;
   border: none;
+  cursor: pointer;
+}
+.people__search_criteria--clear_button:focus {
+  outline: none;
 }
 
 .person {
@@ -342,4 +344,11 @@ body {
   background-color: #ca5157;
   color: #fcfcfc;
   font-size: 1.5rem;
+  transition: all 0.2s ease;
+}
+.search_bar--button:focus {
+  outline: none;
+}
+.search_bar--button:hover {
+  transform: scale(1.05);
 }

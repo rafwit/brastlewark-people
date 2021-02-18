@@ -6,8 +6,9 @@
   justify-content: center;
 
   &__separator {
-    color: $color-black-light;
     @include headingFont;
+
+    color: $color-black-light;
     align-self: center;
     margin: 6rem;
     font-size: $font-size-headings-big;
@@ -23,10 +24,9 @@
 
   &__search_criteria {
     display: flex;
+    align-content: center;
 
     &--value {
-      align-self: center;
-      padding: 0.5rem;
       color: $color-black-light;
       font-family: $font-primary;
       font-size: $font-size-medium;
@@ -36,8 +36,13 @@
 
     &--clear_button {
       background-color: transparent;
-      align-self: center;
       border: none;
+
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
     }
   }
 }

@@ -6,6 +6,8 @@ import { X } from "react-feather";
 import {
   clearSearchCriteria,
   getPeople,
+  resetItemsOnPageCount,
+  saveFilteredPeople,
   showMorePeople,
 } from "../store/actions";
 import Breadcrumbs from "./Breadcrumbs";
@@ -13,10 +15,12 @@ import SearchBar from "./SearchBar";
 
 export default function People() {
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(false);
+  let filteredPeopleBeforeDispatch = [];
 
   const people = useSelector((store) => store.people);
   const itemsOnPageCount = useSelector((store) => store.pagination);
-  const searchCriteria = useSelector((store) => store.search_criteria);
+  const searchCriteria = useSelector((store) => store.filter.criteria.search);
+  const filteredPeople = useSelector((store) => store.filter.filtered_people);
 
   const distpach = useDispatch();
 
@@ -34,7 +38,6 @@ export default function People() {
     <div className="people">
       <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "People" }]} />
       <SearchBar />
-      {console.log(searchCriteria)}
       {searchCriteria === null ? (
         <>
           <div className="people__separator">
@@ -47,6 +50,11 @@ export default function People() {
                 })
               : null}
           </div>
+          {showLoadMoreButton ? (
+            <LoadMoreButton
+              active={itemsOnPageCount >= people.length ? false : true}
+            />
+          ) : null}
         </>
       ) : (
         <>
@@ -56,31 +64,49 @@ export default function People() {
             </div>
             <button
               className="people__search_criteria--clear_button"
-              onClick={() => distpach(clearSearchCriteria())}
+              onClick={() => {
+                distpach(clearSearchCriteria());
+                distpach(resetItemsOnPageCount());
+              }}
             >
               <X size="2rem" />
             </button>
           </div>
           <div className="people__list">
-            {people.slice(0, itemsOnPageCount).map((person) => {
-              if (
-                person.name
-                  .toLowerCase()
-                  .split(" ")
-                  .join("")
-                  .includes(searchCriteria.toLowerCase())
-              ) {
-                return <PersonCard person={person} key={person.id} />;
-              }
-            })}
+            {filteredPeople.length === 0 ? (
+              people.map((person) => {
+                if (
+                  person.name
+                    .replaceAll(" ", "")
+                    .toLowerCase()
+                    .includes(searchCriteria.replaceAll(" ", "").toLowerCase())
+                ) {
+                  filteredPeopleBeforeDispatch.push(person);
+                }
+                if (
+                  people.indexOf(person) === people.length - 1 &&
+                  filteredPeopleBeforeDispatch.length > 0
+                ) {
+                  distpach(saveFilteredPeople(filteredPeopleBeforeDispatch));
+                }
+              })
+            ) : (
+              <>
+                <div className="people__list">
+                  {filteredPeople.slice(0, itemsOnPageCount).map((person) => {
+                    return <PersonCard person={person} key={person.id} />;
+                  })}
+                </div>
+                {showLoadMoreButton ? (
+                  <LoadMoreButton
+                    active={filteredPeople.length >= itemsOnPageCount}
+                  />
+                ) : null}
+              </>
+            )}
           </div>
         </>
       )}
-      {showLoadMoreButton ? (
-        <LoadMoreButton
-          active={itemsOnPageCount >= people.length ? false : true}
-        />
-      ) : null}
     </div>
   );
 }
