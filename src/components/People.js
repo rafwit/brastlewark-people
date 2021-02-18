@@ -12,6 +12,7 @@ import {
 } from "../store/actions";
 import Breadcrumbs from "./Breadcrumbs";
 import SearchBar from "./SearchBar";
+import FilterBar from "./FilterBar";
 
 export default function People() {
   const [showLoadMoreButton, setShowLoadMoreButton] = useState(false);
@@ -38,6 +39,8 @@ export default function People() {
     <div className="people">
       <Breadcrumbs items={[{ label: "Home", to: "/" }, { label: "People" }]} />
       <SearchBar />
+      <FilterBar />
+
       {searchCriteria === null ? (
         <>
           <div className="people__separator">
@@ -72,6 +75,7 @@ export default function People() {
               <X size="2rem" />
             </button>
           </div>
+
           <div className="people__list">
             {filteredPeople.length === 0 ? (
               people.map((person) => {

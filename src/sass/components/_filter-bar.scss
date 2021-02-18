@@ -1,0 +1,75 @@
+.filter_bar {
+  @include headingFont;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-white;
+
+    &--title {
+      align-self: center;
+      margin: 4rem 0 2rem 0;
+      font-size: $font-size-headings-big;
+    }
+
+    &--button {
+      height: 2.5rem;
+      width: 8%;
+      font-size: $font-size-medium;
+      background-color: transparent;
+      color: $color-black-light;
+      display: inline-block;
+      text-decoration: none;
+      border: none;
+
+      transition: all 0.2s ease;
+
+      &:hover {
+        background-color: $color-red;
+        color: $color-white;
+        border-radius: 5rem;
+        border: none;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      &:active {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__form--container {
+    @include basicBoxFormat;
+    // height: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in;
+    background-color: turquoise;
+    z-index: -1;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
