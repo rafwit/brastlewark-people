@@ -46,5 +46,15 @@
     background-color: $color-red;
     color: $color-white;
     font-size: $font-size-medium;
+
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }
