@@ -1,4 +1,14 @@
 import axios from "axios";
+import {
+  ADD_FILTER_CRITERIA_PROFFESIONS,
+  ADD_SEARCH_CRITERIA,
+  CLEAR_FILTER_CRITERIA_PROFFESIONS,
+  CLEAR_SEARCH_CRITERIA,
+  RESET_MAX_ITEMS_ON_PAGE_COUNT,
+  SAVE_FILTERED_PEOPLE,
+  SAVE_PEOPLE,
+  SHOW_MORE_PEOPLE,
+} from "./types";
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -52,9 +62,16 @@ export function saveFilteredPeople(people) {
   };
 }
 
-export const SAVE_PEOPLE = "SAVE_PEOPLE";
-export const SHOW_MORE_PEOPLE = "SHOW_MORE_PEOPLE";
-export const ADD_SEARCH_CRITERIA = "ADD_SEARCH_CRITERIA";
-export const CLEAR_SEARCH_CRITERIA = "CLEAR_SEARCH_CRITERIA";
-export const SAVE_FILTERED_PEOPLE = "SAVE_FILTERED_PEOPLE";
-export const RESET_MAX_ITEMS_ON_PAGE_COUNT = "RESET_MAX_ITEMS_ON_PAGE_COUNT";
+export function addFilterCriteriaProfessions(professions) {
+  return {
+    type: ADD_FILTER_CRITERIA_PROFFESIONS,
+    payload: professions,
+  };
+}
+
+export function clearFilterCriteriaProfessions() {
+  return {
+    type: CLEAR_FILTER_CRITERIA_PROFFESIONS,
+    payload: [],
+  };
+}

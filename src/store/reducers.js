@@ -5,12 +5,13 @@ import {
   CLEAR_SEARCH_CRITERIA,
   SAVE_FILTERED_PEOPLE,
   RESET_MAX_ITEMS_ON_PAGE_COUNT,
-} from "./actions";
+  ADD_FILTER_CRITERIA_PROFFESIONS,
+} from "./types";
 
 let initialState = {
   people: [],
   max_items_on_page: 50,
-  filter: { criteria: { search: null }, filtered_people: [] },
+  filter: { criteria: { search: null, professions: [] }, filtered_people: [] },
 };
 
 export function peopleReducer(state = initialState.people, action) {
@@ -54,6 +55,10 @@ export function filterCriteriaReducer(state = initialState.filter, action) {
     }
     case SAVE_FILTERED_PEOPLE: {
       state.filtered_people = action.payload;
+      return state;
+    }
+    case ADD_FILTER_CRITERIA_PROFFESIONS: {
+      state.criteria.professions = action.payload;
       return state;
     }
     default: {
