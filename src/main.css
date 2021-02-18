@@ -1,0 +1,354 @@
+*,
+**::after,
+**::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+@media (max-width: 75em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 50%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+  padding: 3rem;
+  font-family: "Noto Sans";
+  background-color: #fcfcfc;
+}
+@media (max-width: 56.25em) {
+  body {
+    padding: 0;
+  }
+}
+
+.breadcrumbs {
+  position: absolute;
+  background-color: #fcfcfc;
+  top: 10rem;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+}
+.breadcrumbs__item {
+  position: relative;
+}
+.breadcrumbs__item--link {
+  text-decoration: none;
+  color: #303133;
+}
+.breadcrumbs__item--separator {
+  position: relative;
+  margin: 0 2px 0 2px;
+  top: 0.15rem;
+  height: 1em;
+  width: auto;
+}
+
+.homepage {
+  position: relative;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #fcfcfc;
+  margin: 5rem;
+  padding: 5rem;
+  height: 50vh;
+  border-radius: 2rem;
+}
+.homepage__link {
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  color: #303133;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  height: 10vh;
+  text-decoration: none;
+  font-size: 2rem;
+  font-family: "Barlow Condensed";
+}
+.homepage__link--title {
+  align-self: center;
+  font-size: 3.5rem;
+}
+
+.load_more_button {
+  align-self: center;
+  align-content: center;
+  border: none;
+  border-radius: 5rem;
+  color: #fcfcfc;
+  font-size: 1.5rem;
+  line-height: 1rem;
+  margin-top: 3rem;
+  height: 3rem;
+  width: 10%;
+  transition: all 0.2s ease;
+}
+.load_more_button:focus {
+  outline: none;
+}
+.load_more_button:hover {
+  transform: scale(1.05);
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  width: 100%;
+  height: 6rem;
+  background-color: #181819;
+  z-index: 100;
+}
+.navbar__title {
+  color: #fcfcfc;
+  font-family: "Barlow Condensed";
+  font-size: 2.4rem;
+  align-self: center;
+  margin-left: 2rem;
+}
+
+.people {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.people__separator {
+  font-size: 2rem;
+  font-family: "Barlow Condensed";
+  color: #303133;
+  align-self: center;
+  margin: 6rem;
+  font-size: 3.5rem;
+}
+.people__list {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+.people__search_criteria {
+  display: flex;
+  align-content: center;
+}
+.people__search_criteria--value {
+  color: #303133;
+  font-family: "Noto Sans";
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: fit-content;
+}
+.people__search_criteria--clear_button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.people__search_criteria--clear_button:focus {
+  outline: none;
+}
+
+.person {
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  color: #303133;
+  display: flex;
+  justify-content: center;
+  color: #303133;
+  text-decoration: none;
+  width: 15vw;
+  margin: 1rem;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+.person:hover {
+  transform: scale(1.05);
+}
+
+.person_details {
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  color: #303133;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  color: #303133;
+  margin-top: 10rem;
+  padding: 10rem;
+}
+@media (max-width: 43.75em) {
+  .person_details {
+    justify-content: space-around;
+  }
+}
+@media (max-width: 32.81em) {
+  .person_details {
+    flex-direction: column;
+  }
+}
+.person_details__picture {
+  width: 30%;
+}
+.person_details__avatar {
+  align-self: flex-start;
+  margin-left: -2rem;
+}
+@media (max-width: 32.81em) {
+  .person_details__avatar {
+    align-self: center;
+    transform: translate(-4px, -25%);
+  }
+}
+.person_details__basic {
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 32.81em) {
+  .person_details__basic {
+    flex-direction: column;
+  }
+}
+.person_details__name {
+  margin: -4rem 1rem 0 1rem;
+  font-family: "Barlow Condensed";
+  font-size: 3.5rem;
+}
+@media (max-width: 32.81em) {
+  .person_details__name {
+    align-self: center;
+  }
+}
+.person_details__appearance {
+  margin: 1rem 1rem 0 1rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  color: #808080;
+}
+.person_details__appearance > * {
+  padding-top: 1rem;
+}
+@media (max-width: 32.81em) {
+  .person_details__appearance {
+    display: flex;
+    width: 70vw;
+    justify-content: space-between;
+    align-self: center;
+  }
+}
+.person_details__other {
+  display: flex;
+  transform: translateX(-10%);
+}
+@media (max-width: 32.81em) {
+  .person_details__other {
+    transform: translateX(0);
+    flex-direction: column;
+  }
+}
+.person_details__professions {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+.person_details__professions--header {
+  margin: 0 1rem 1rem 1rem;
+  font-family: "Barlow Condensed";
+  font-size: 2.4rem;
+}
+.person_details__professions--profession {
+  margin: 0 0 0 1rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  color: #808080;
+}
+.person_details__friends {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+.person_details__friends--header {
+  margin: 0 1rem 1rem 1rem;
+  font-family: "Barlow Condensed";
+  font-size: 2.4rem;
+}
+.person_details__friends--friend {
+  text-decoration: none;
+  margin: 0 0 0 1rem;
+  align-self: flex-start;
+  font-size: 1.2rem;
+  color: #808080;
+  margin-top: 1rem;
+}
+
+.search_bar {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  font-family: "Barlow Condensed";
+  width: 60%;
+  margin-top: 10rem;
+}
+.search_bar--title {
+  align-self: center;
+  margin-bottom: 4rem;
+  font-size: 3.5rem;
+}
+.search_bar--form {
+  display: flex;
+  flex-direction: column;
+}
+.search_bar--input {
+  width: 100%;
+  border: none;
+  border-radius: 5rem;
+  padding: 1.5rem;
+  font-family: "Noto Sans";
+  border: 1px solid #808080;
+}
+.search_bar--input:active, .search_bar--input:focus {
+  outline: none;
+}
+.search_bar--button {
+  width: 15%;
+  align-self: center;
+  margin-top: 2rem;
+  border: none;
+  border-radius: 5rem;
+  height: 3rem;
+  background-color: #ca5157;
+  color: #fcfcfc;
+  font-size: 1.5rem;
+  transition: all 0.2s ease;
+}
+.search_bar--button:focus {
+  outline: none;
+}
+.search_bar--button:hover {
+  transform: scale(1.05);
+}

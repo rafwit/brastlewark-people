@@ -1,0 +1,46 @@
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-medium {
+    @media (max-width: 32.81em) {
+      // 600px
+      @content;
+    }
+  }
+  @if $breakpoint == phone-large {
+    @media (max-width: 43.75em) {
+      // 600px
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-portrait {
+    // 900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet-landscape {
+    //  1200px
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    // 1800px
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
+@mixin basicBoxFormat {
+  // border: 0.5px solid $color-black-light;
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  color: $color-black-light;
+}
+
+@mixin headingFont {
+  font-size: $font-size-headings-small;
+  font-family: $font-headings;
+}
